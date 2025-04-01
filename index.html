@@ -30,6 +30,14 @@
       margin-bottom: 0.5rem;
     }
 
+    .publication-entry:first-of-type {
+  margin-top: 1.5rem;
+}
+
+.publication-entry:last-child {
+  margin-bottom: 2.5rem;
+}
+
     main {
       max-width: 800px;
       margin: 2rem auto;
@@ -121,33 +129,58 @@
     }
 
     .publication-entry {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-      margin-bottom: 1.5rem;
-    }
+  display: flex;
+  align-items: stretch;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
 
-    .publication-entry img {
-      width: 100%;
-      max-width: 200px;
-      border-radius: 4px;
-    }
+.pub-image {
+  width: 200px;
+  height: 150px;
+  flex-shrink: 0;
+  display: flex;
+}
 
-    @media (max-width: 768px) {
-      main {
-        margin: 1rem;
-        padding: 1rem;
-      }
 
-      .publication-entry {
-        flex-direction: column;
-        align-items: center;
-      }
+.pub-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
 
-      .publication-entry img {
-        max-width: 100%;
-      }
-    }
+.pub-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+@media (max-width: 550px) {
+  .publication-entry {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .pub-image {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+  }
+
+  .pub-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+  }
+
+  .pub-text {
+    width: 100%;
+  }
+}
 
     @media (max-width: 480px) {
       body {
@@ -181,51 +214,63 @@
     </section>
 
     <section id="publications">
-  <h2>Selected Publications</h2>
-  <div class="publication-entry">
-    <img src="images/mini-mates-thumb.jpeg" alt="Thumbnail for MiniMates" style="width: 200px; border-radius: 4px;">
-    <div>
-      <strong>MiniMates: Miniature Avatars for AR Remote Meetings within Limited Physical Spaces</strong><br>
-      <span class="authors">Akihiro Kiuchi, Jonathan Wieland, Takeo Igarashi, David Lindlbauer.</span>
-      <span class="venue">CHI 2025</span>
-      <a class="doi" href="" target="_blank">DOI</a>
-    </div>
-  </div>
-  <div class="publication-entry">
-    <img src="images/companion-cube-thumb.jpg" alt="Thumbnail for Companion Cube" style="width: 200px; border-radius: 4px;">
-    <div>
-      <strong>Investigating the Potential of Haptic Props for 3D Object Manipulation in Handheld AR</strong><br>
-      <span class="authors">Jonathan Wieland, Maximilian Dürr, Rebecca Frisch, Melissa Michalke, Dominik Morgenstern, Harald Reiterer, Tiare Feuchtner</span>
-      <span class="venue">IEEE TVCG</span>
-      <a class="doi" href="https://doi.org/10.1109/TVCG.2024.3495021" target="_blank">DOI</a>
-    </div>
-  </div>
-  <div class="publication-entry">
-    <img src="images/push2ar_thumb.jpg" alt="Thumbnail for Push2AR" style="width: 200px; border-radius: 4px;">
-    <div>
-      <strong>Push2AR: Enhancing Mobile List Interactions Using Augmented Reality</strong><br>
-      <span class="authors">Jonathan Wieland, Hyunsung Cho, Sebastian Hubenschmid, Akihiro Kiuchi, Harald Reiterer, David Lindlbauer</span>
-      <span class="venue">IEEE ISMAR 2024</span>
-      <a class="doi" href="https://doi.org/10.1109/ISMAR62088.2024.00082" target="_blank">DOI</a>
-    </div>
-  </div>
-  <div class="publication-entry">
-    <img src="images/relive-thumb.jpg" alt="Thumbnail for ReLive" style="width: 200px; border-radius: 4px;">
-    <div>
-      <strong>ReLive: Bridging In-Situ and Ex-Situ Visual Analytics for Analyzing Mixed Reality User Studies</strong><br>
-      <span class="authors">Sebastian Hubenschmid*, Jonathan Wieland*, Daniel Immanuel Fink*, Andrea Batch, Johannes Zagermann, Niklas Elmqvist, Harald Reiterer (*contributed equally)</span>
-      <span class="venue">CHI 2022</span>
-      <a class="doi" href="https://doi.org/10.1145/3491102.3517550" target="_blank">DOI</a>
-    </div>
-  </div>
-</section>
+      <h2>Selected Publications</h2>
+
+      <div class="publication-entry">
+        <div class="pub-image">
+          <img src="images/mini-mates-thumb.jpeg" alt="Thumbnail for MiniMates">
+        </div>
+        <div class="pub-text">
+          <strong>MiniMates: Miniature Avatars for AR Remote Meetings within Limited Physical Spaces</strong>
+          <span class="authors">Akihiro Kiuchi, Jonathan Wieland, Takeo Igarashi, David Lindlbauer.</span>
+          <span class="venue">CHI 2025</span>
+          <a class="doi" href="" target="_blank">DOI</a>
+        </div>
+      </div>
+
+      <div class="publication-entry">
+        <div class="pub-image">
+          <img src="images/companion-cube-thumb.jpg" alt="Thumbnail for Companion Cube">
+        </div>
+        <div class="pub-text">
+          <strong>Investigating the Potential of Haptic Props for 3D Object Manipulation in Handheld AR</strong>
+          <span class="authors">Jonathan Wieland, Maximilian Dürr, Rebecca Frisch, Melissa Michalke, Dominik Morgenstern, Harald Reiterer, Tiare Feuchtner</span>
+          <span class="venue">IEEE TVCG</span>
+          <a class="doi" href="https://doi.org/10.1109/TVCG.2024.3495021" target="_blank">DOI</a>
+        </div>
+      </div>
+
+      <div class="publication-entry">
+        <div class="pub-image">
+          <img src="images/push2ar_thumb.jpg" alt="Thumbnail for Push2AR">
+        </div>
+        <div class="pub-text">
+          <strong>Push2AR: Enhancing Mobile List Interactions Using Augmented Reality</strong>
+          <span class="authors">Jonathan Wieland, Hyunsung Cho, Sebastian Hubenschmid, Akihiro Kiuchi, Harald Reiterer, David Lindlbauer</span>
+          <span class="venue">IEEE ISMAR 2024</span>
+          <a class="doi" href="https://doi.org/10.1109/ISMAR62088.2024.00082" target="_blank">DOI</a>
+        </div>
+      </div>
+
+      <div class="publication-entry">
+        <div class="pub-image">
+          <img src="images/relive-thumb.jpg" alt="Thumbnail for ReLive">
+        </div>
+        <div class="pub-text">
+          <strong>ReLive: Bridging In-Situ and Ex-Situ Visual Analytics for Analyzing Mixed Reality User Studies</strong>
+          <span class="authors">Sebastian Hubenschmid*, Jonathan Wieland*, Daniel Immanuel Fink*, Andrea Batch, Johannes Zagermann, Niklas Elmqvist, Harald Reiterer (*contributed equally)</span>
+          <span class="venue">CHI 2022</span>
+          <a class="doi" href="https://doi.org/10.1145/3491102.3517550" target="_blank">DOI</a>
+        </div>
+      </div>
+    </section>
 
     <section id="service">
       <h2>Academic Service</h2>
       <ul>
         <li>Reviewer for premier HCI venues including CHI, ISMAR, ISS, and CHI PLAY</li>
-        <li>Late-Breaking Work Associate Chair (LBW AC), CHI 2025</li>
-        <li>Late-Breaking Work Associate Chair (LBW AC), CHI 2024</li>
+        <li>LBW AC for CHI 2025</li>
+        <li>LBW AC for CHI 2024</li>
       </ul>
     </section>
 
@@ -233,7 +278,7 @@
       <h2>Awards</h2>
       <ul>
         <li>2024: ADC Talent Award 2024 - Bronze for exhibition <a href="https://youtopia-konstanz.de/">"YOUTOPIA"</a></li>
-        <li>2023: CommAwards - Silver  for exhibition <a href="https://youtopia-konstanz.de/">"YOUTOPIA"</a></li>
+        <li>2023: CommAwards - Silver for exhibition <a href="https://youtopia-konstanz.de/">"YOUTOPIA"</a></li>
         <li>2022: ADC Talent Award - Gold for exhibition <a href="https://stayin-alive.info/">"Stayin' Alive"</a></li>
         <li><a href="https://www.red-dot.org/project/stayin-alive-60726">2022: Red Dot Winner - Brands & Communication Design</a> for exhibition <a href="https://stayin-alive.info/">"Stayin' Alive"</a></li>
         <li>2021: CommAwards - Gold for exhibition <a href="https://stayin-alive.info/">"Stayin' Alive"</a></li>
